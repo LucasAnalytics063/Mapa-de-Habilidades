@@ -1,154 +1,78 @@
-🧭 Mapa de Habilidades
-Descubra, organize e monetize suas competências com apoio de Inteligência Artificial
+# Mapa de Habilidades — Inteligência de Carreira com IA
+> Mapeie suas competências. Leia o mercado. Monetize com estratégia.
 
-O Mapa de Habilidades é um projeto que fornece um prompt estruturado e guiado para ajudar pessoas a identificarem suas habilidades, analisarem seu potencial de mercado e encontrarem caminhos práticos para gerar renda, utilizando ferramentas de Inteligência Artificial como apoio estratégico.
+## Visão Geral
 
-Este repositório foi criado para quem deseja clareza profissional, direcionamento de carreira e tomada de decisão baseada em autoconhecimento e mercado — independentemente do nível de experiência.
+A maioria dos profissionais ou subestima seu valor de mercado ou investe no conjunto de habilidades errado. O **Mapa de Habilidades** resolve isso combinando auto avaliação estruturada com análise de mercado orquestrada por um framework de engenharia de prompts projetado para extrair sinal do ruído.
 
-🎯 Objetivo do Projeto
+O projeto entrega um pipeline conversacional reutilizável que qualquer LLM (Claude, GPT-4, Gemini) consegue executar para gerar um relatório completo de inteligência profissional: do inventário bruto de competências até os caminhos de monetização priorizados.
 
-O objetivo do Mapa de Habilidades é apoiar o usuário a:
+## O Problema
 
-Identificar suas principais competências técnicas e comportamentais
+Decisões de carreira tomadas sem dados estruturados são caras. Profissionais tipicamente:
+- Permanecem em posições abaixo do seu teto de mercado, sem clareza sobre seu valor transferível
+- Pivotam para áreas de baixa demanda, desperdiçando meses de capacitação
+- Monetizam o conjunto de habilidades errado enquanto ignoram oportunidades adjacentes de alto valor
 
-Entender como essas habilidades se conectam às demandas reais do mercado
+Este projeto resolve o **problema de clareza** antes que ele se torne um problema de carreira.
 
-Explorar possibilidades concretas de monetização
+## Como Funciona
 
-Organizar informações pessoais e profissionais de forma estratégica
+O motor central é um **prompt com gates sequenciais** o LLM não pode pular etapas nem fabricar dados. Cada fase só avança após o usuário fornecer um input estruturado.
 
-Gerar clareza para decisões de carreira, renda extra ou reposicionamento profissional
+**Fase 1 — Inventário**
+Levantamento estruturado de habilidades técnicas, competências comportamentais, experiência profissional e conhecimentos latentes que o usuário possui mas ainda não articulou.
 
-🧠 Como Funciona
+**Fase 2 — Mapeamento de Mercado**
+Cruzamento do stack identificado com a demanda atual — identificando quais habilidades estão comoditizadas, quais são escassas e onde de fato está o poder de precificação.
 
-O projeto utiliza um prompt guiado, dividido em etapas sequenciais.
-O usuário interage com uma IA (ChatGPT, Gemini, Claude etc.) respondendo às perguntas propostas.
+**Fase 3 — Estratégia de Monetização**
+Geração de caminhos priorizados: posicionamento freelance, ângulos de consultoria, oportunidades de produtização ou reposicionamento estratégico — com justificativa para cada recomendação.
 
-A IA conduz o processo de forma estruturada, sem pular etapas, até gerar uma análise final completa.
+## Arquitetura do Prompt
 
-Fluxo geral:
+O prompt segue um conjunto de restrições aplicadas em nível de design:
 
-O usuário copia o prompt disponível neste repositório
+|                        Restrição                    |                        Justificativa                       |
+|-----------------------------------------------------|------------------------------------------------------------|
+| Uma pergunta por etapa (máx. 3 subperguntas)        | Evita sobrecarga cognitiva e melhora a qualidade dos dados |
+| Gate sequencial sem pular etapas                    | Garante que a Fase 2 seja fundamentada nos dados da Fase 1 |
+| Política anti-alucinação `[PREENCHER]` para lacunas | Mantém a integridade do relatório                          |
+| Justificativa obrigatória para cada recomendação    | Constrói confiança do usuário no output gerado             |
 
-Cola em uma ferramenta de IA
+## Entregáveis
 
-Responde às perguntas, uma etapa por vez
+Uma execução completa produz quatro outputs estruturados:
 
-Recebe:
+**Log da Sessão** — Q&A completo organizado por fase, auditável e reutilizável
 
-Diagnóstico de habilidades
+**Diagnóstico Profissional** — Competências centrais, pontos de alavancagem e lacunas de habilidade com contexto de mercado
 
-Análise de mercado
+**Matriz de Monetização** — Caminhos priorizados com exemplos reais: consultoria, produtização, posicionamento freelance ou reposicionamento interno
 
-Sugestões práticas de monetização
+**Critérios de Ação** — Próximos passos concretos com critérios de aceitação definidos, não conselhos genéricos
 
-Síntese profissional final
+## Casos de Uso
 
-🧩 Estrutura do Processo
-1️⃣ Inventário de Habilidades
+Esta não é uma ferramenta genérica de carreira. Foi construída para momentos específicos de decisão:
 
-Mapeamento das experiências, conhecimentos, interesses, habilidades técnicas e comportamentais.
+- **Transição de carreira** — quantificar valor transferível antes de dar o movimento
+- **Negociação de remuneração** — entender posicionamento de mercado antes de uma conversa salarial
+- **Arquitetura de renda paralela** — identificar quais habilidades podem gerar receita em paralelo ao emprego principal
+- **Priorização de capacitação** — decidir onde investir tempo de aprendizado com base em demanda, não em tendência
 
-2️⃣ Cruzamento com Necessidades do Mercado
+## Como Usar
 
-Análise de como as habilidades identificadas se conectam com demandas reais do mercado atual.
+1. Copie o prompt disponível em `/prompt/skill-map.md`
+2. Cole na interface do LLM de sua preferência
+3. Responda cada pergunta com o máximo de especificidade possível a qualidade do output é diretamente proporcional à profundidade do input
+4. Exporte o relatório final para referência
 
-3️⃣ Caminhos de Monetização
+## Licença
 
-Exploração de possibilidades reais para gerar renda, como:
+MIT — Uso, fork e adaptação livres. Créditos são apreciados.
 
-Serviços
-
-Produtos digitais
-
-Freelance
-
-Consultoria
-
-Projetos paralelos
-
-Reposicionamento profissional
-
-📌 Regras do Processo
-
-Uma pergunta por vez (máximo de 3 subperguntas).
-
-Avançar para a próxima etapa somente após a resposta do usuário.
-
-Nenhuma informação deve ser inventada.
-
-Quando algo não for informado, deve ser marcado como [PREENCHER].
-
-Linguagem clara, objetiva e profissional.
-
-Foco em aplicabilidade prática.
-
-📦 Entregáveis ao Final do Processo
-
-Ao concluir todas as etapas, a IA deve gerar:
-
-Registro completo de perguntas e respostas, organizado por etapa
-
-Diagnóstico profissional, incluindo:
-
-Principais habilidades
-
-Pontos fortes
-
-Lacunas a desenvolver
-
-Leitura de mercado, explicando onde essas habilidades são demandadas
-
-Caminhos de monetização, com:
-
-Opções priorizadas
-
-Exemplos práticos
-
-Próximos passos recomendados
-
-🧠 Prompt Oficial — Copie e Use
-Mapa de Habilidades por Etapas (Inventário → Mercado → Monetização)
-
-Você é um consultor de carreira e estratégia profissional.
-Sua tarefa é me orientar na construção de um Mapa de Habilidades, de forma estruturada e interativa.
-
-Objetivo:
-Levantar minhas habilidades, cruzá-las com as necessidades do mercado e gerar caminhos práticos de monetização, concluindo com recomendações profissionais claras.
-
-Estrutura do processo:
-1. Inventário de Habilidades
-2. Cruzamento com Necessidades do Mercado
-3. Caminhos de Monetização
-
-Regras:
-- Faça UMA pergunta por vez (máximo 3 subperguntas).
-- Só avance para a próxima etapa após minha resposta.
-- Não invente informações. Quando algo não for informado, use [PREENCHER].
-- Linguagem clara, objetiva e profissional.
-- Sempre explique o motivo das recomendações.
-
-Ao final, entregue:
-A) Perguntas e respostas organizadas por etapa  
-B) Resumo profissional  
-C) Caminhos de monetização (com exemplos práticos)  
-D) Critérios de aceitação e próximos passos  
-
-Inicie agora pela Etapa 1 – Inventário de Habilidades, com a primeira pergunta.
-
-👥 Para quem este projeto é indicado
-
-Pessoas em transição de carreira
-
-Profissionais buscando renda extra
-
-Estudantes em fase de autoconhecimento
-
-Freelancers e criadores de conteúdo
-
-Pessoas que desejam clareza profissional antes de tomar decisões
-
-📄 Licença
-
-Este projeto está licenciado sob a MIT License.
-Uso, modificação e redistribuição são permitidos, desde que os créditos sejam mantidos.
+## Autor
+**Lucas Beserra Ribeiro**  
+Analista de Business Intelligence | Sicoob Tocantins  
+[GitHub: LucasAnalytics063](https://github.com/LucasAnalytics063)
